@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "pom.xml"
-      - ".github/workflows/java-parent.yml"
+      - ".github/workflows/push.yml"
 
 jobs:
   build:
