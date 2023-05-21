@@ -3,12 +3,9 @@ name: Pull request java-parent
 on:
   pull_request:
     branches: [main]
-    paths:
-      - "pom.xml"
-      - ".github/workflows/pull-request.yml"
 
 jobs:
-  build:
+  pr-build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -19,7 +16,5 @@ jobs:
         with:
           java-version: "17"
           distribution: "temurin"
-          server-id: github
-          settings-path: ${{ github.workspace }}
       - name: Maven verify
         run: ./mvnw -B -ntp verify -f pom.xml
