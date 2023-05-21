@@ -13,7 +13,6 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
 
     <!-- plugins -->
     <maven-assembly-plugin.version>3.6.0</maven-assembly-plugin.version>
@@ -129,6 +128,16 @@
     </pluginManagement>
 
     <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerArgs>
+            <arg>-Xlint</arg>
+          </compilerArgs>
+          <failOnWarning>true</failOnWarning>
+          <release>17</release>
+        </configuration>
+      </plugin>
       <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
