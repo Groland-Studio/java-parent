@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "pom.xml"
-      - ".github/workflows/pull_request.yml"
+      - ".github/workflows/pull-request.yml"
 
 jobs:
   build:
