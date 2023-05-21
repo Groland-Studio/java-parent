@@ -22,11 +22,12 @@ jobs:
           distribution: "temurin"
           server-id: github
           settings-path: ${{ github.workspace }}
+          cache: "maven"
       - run: less $GITHUB_WORKSPACE/settings.xml
       - name: Update version
-        run: mvn -B -ntp versions:set -DnewVersion=$GITHUB_RUN_NUMBER -f pom.xml
+        run: ./mvnw -B -ntp versions:set -DnewVersion=$GITHUB_RUN_NUMBER -f pom.xml
       - name: Build with Maven
-        run: mvn -B -ntp verify -f pom.xml
+        run: ./mvnw -B -ntp verify -f pom.xml
       - name: Upload java-parent artifact
         uses: actions/upload-artifact@v3
         with:
