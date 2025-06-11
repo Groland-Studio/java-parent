@@ -25,7 +25,7 @@ jobs:
           settings-path: ${{ github.workspace }}
           cache: "maven"
       - name: Check version
-        run: echo version="./scripts/semver ${{ inputs.version }}" >> $GITHUB_OUTPUT
+        run: echo version="$(./scripts/semver ${{ inputs.version }})" >> $GITHUB_OUTPUT
       - name: Update version
         run: ./mvnw -B -ntp versions:set -DnewVersion=${{ steps.vars.outputs.version }} -f pom.xml
       #- name: Deploy java-parent
