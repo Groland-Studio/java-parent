@@ -20,6 +20,11 @@ jobs:
           server-id: github
           settings-path: ${{ github.workspace }}
           cache: "maven"
+      - name: Event context
+        env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
       - name: Check version
         id: check_version
         env:
