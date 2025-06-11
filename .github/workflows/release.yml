@@ -1,0 +1,30 @@
+name: Release java-parent
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: "temurin"
+          server-id: github
+          settings-path: ${{ github.workspace }}
+          cache: "maven"
+      - name: Update version
+        run: ./mvnw -B -ntp versions:set -DnewVersion=$(./semver $TAG) -f pom.xml
+        env:
+          TAG: ${{ github.event.tag_name }}
+      #- name: Deploy java-parent
+      #  run: ./mvnw -B -ntp deploy -s $GITHUB_WORKSPACE/settings.xml -f pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/$GITHUB_REPOSITORY
+      #  env:
+      #    GITHUB_TOKEN: ${{ github.token }}
