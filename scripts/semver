@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Super duper simple semver checker which only allows
+# for semver versions in the form of "major.minor.patch"
+# It does however handle a starting v (eg: v1.0.0)
+
+if [[ "$1" == "" ]]; then
+  echo "Extracts semver from input."
+  echo "Omits 'v' in case the input start with that."
+  echo ""
+  echo "Usage: "
+  echo "   semver <input>"
+  exit 1
+fi
+
+if [[ "$1" =~ ^(v)?([0-9]+.[0-9]+.[0-9]+)$ ]]; then
+  echo "${BASH_REMATCH[2]}";
+  exit 0
+else
+  echo >&2 "Not a valid SemVer: $1"
+  exit 1
+fi
