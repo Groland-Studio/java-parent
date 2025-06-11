@@ -28,12 +28,12 @@ jobs:
       - name: Check version
         id: check_version
         env:
-          TAG: ${{ github.event.tag_name }}
+          TAG: ${{ github.event.release.tag_name }}
         run: echo version="$(./scripts/semver $TAG)" >> $GITHUB_OUTPUT
       - name: Update version
         run: ./mvnw -B -ntp versions:set -DnewVersion=${{ steps.check_version.outputs.version }} -f pom.xml
         env:
-          TAG: ${{ github.event.tag_name }}
+          TAG: ${{ github.event.release.tag_name }}
       #- name: Deploy java-parent
       #  run: ./mvnw -B -ntp deploy -s $GITHUB_WORKSPACE/settings.xml -f pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/$GITHUB_REPOSITORY
       #  env:
