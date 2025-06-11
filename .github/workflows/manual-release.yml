@@ -27,7 +27,7 @@ jobs:
       - name: Check version
         run: echo version="./scripts/semver ${{ inputs.version }}" >> $GITHUB_OUTPUT
       - name: Update version
-        run: ./mvnw -B -ntp versions:set -DnewVersion=${{ step.vars.outputs.version }} -f pom.xml
+        run: ./mvnw -B -ntp versions:set -DnewVersion=${{ steps.vars.outputs.version }} -f pom.xml
       #- name: Deploy java-parent
       #  run: ./mvnw -B -ntp deploy -s $GITHUB_WORKSPACE/settings.xml -f pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/$GITHUB_REPOSITORY
       #  env:
