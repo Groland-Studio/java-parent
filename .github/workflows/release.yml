@@ -21,7 +21,7 @@ jobs:
           settings-path: ${{ github.workspace }}
           cache: "maven"
       - name: Update version
-        run: ./mvnw -B -ntp versions:set -DnewVersion=$(./semver $TAG) -f pom.xml
+        run: ./mvnw -B -ntp versions:set -DnewVersion=$(./scripts/semver $TAG) -f pom.xml
         env:
           TAG: ${{ github.event.tag_name }}
       #- name: Deploy java-parent
