@@ -20,8 +20,13 @@ jobs:
           server-id: github
           settings-path: ${{ github.workspace }}
           cache: "maven"
+      - name: Check version
+        id: check_version
+        env:
+          TAG: ${{ github.event.tag_name }}
+        run: echo version="$(./scripts/semver $TAG)" >> $GITHUB_OUTPUT
       - name: Update version
-        run: ./mvnw -B -ntp versions:set -DnewVersion="$(./scripts/semver $TAG)" -f pom.xml
+        run: ./mvnw -B -ntp versions:set -DnewVersion=${{ steps.check_version.outputs.version }} -f pom.xml
         env:
           TAG: ${{ github.event.tag_name }}
       #- name: Deploy java-parent
