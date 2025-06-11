@@ -25,6 +25,6 @@ jobs:
           TAG: ${{ github.event.release.tag_name }}
         run: ./mvnw -B -ntp versions:set -DnewVersion=$(./scripts/semver $TAG) -f pom.xml
       - name: Deploy java-parent
-        run: ./mvnw -B -ntp deploy -s $GITHUB_WORKSPACE/settings.xml -f pom.xml -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/$GITHUB_REPOSITORY
+        run: ./mvnw -B -ntp deploy -s $GITHUB_WORKSPACE/settings.xml -f pom.xml -DaltDeploymentRepository=github::https://maven.pkg.github.com/$GITHUB_REPOSITORY
         env:
           GITHUB_TOKEN: ${{ github.token }}
