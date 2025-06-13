@@ -1,6 +1,8 @@
 # java-parent
 Maven parent POM for java projects.
 
+Note that this might be used as a reference to copy/paste necessary parts into other projects which are using other parents, such as spring boot projects.
+
 ## What is included?
 - Plugin version management
 - Dependency management for
