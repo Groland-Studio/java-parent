@@ -11,6 +11,18 @@
   <description>Parent for java projects at Groland Studio</description>
   <url>https://github.com/Groland-Studio/java-parent</url>
 
+  <developers>
+    <developer>
+      <name>Groland Studio</name>
+      <organization>Groland Studio</organization>
+      <organizationUrl>https://www.groland-studio.com</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <url>https://github.com/Groland-Studio/java-parent</url>
+  </scm>
+
   <properties>
     <!-- project settings -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
