@@ -47,13 +47,13 @@
     <maven-site-plugin.version>3.21.0</maven-site-plugin.version>
     <maven-surefire-plugin.version>3.5.3</maven-surefire-plugin.version>
     <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
-    <spotbugs-maven-plugin.version>4.9.3.0</spotbugs-maven-plugin.version>
+    <spotbugs-maven-plugin.version>4.9.3.2</spotbugs-maven-plugin.version>
     <spotless-maven-plugin.version>2.44.5</spotless-maven-plugin.version>
     <versions-maven-plugin.version>2.18.0</versions-maven-plugin.version>
 
     <!-- dependencies -->
     <assertj-core.version>3.27.3</assertj-core.version>
-    <junit-bom.version>5.13.1</junit-bom.version>
+    <junit-bom.version>5.13.2</junit-bom.version>
     <spotbugs.version>4.9.3</spotbugs.version>
     <mockito.version>5.18.0</mockito.version>
   </properties>
